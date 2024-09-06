@@ -5,6 +5,7 @@ metadata:
     app: frontend-pod
     appname: bhw
   name: frontend
+  namespace: default
 spec:
   replicas: 1
   selector:
