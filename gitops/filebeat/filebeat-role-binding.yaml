@@ -5,7 +5,7 @@ metadata:
 subjects:
 - kind: ServiceAccount
   name: filebeat
-  namespace: kube-system  # Assuming Filebeat is running in the 'kube-system' namespace
+  namespace: kube-system
 roleRef:
   kind: ClusterRole
   name: filebeat-cluster-role

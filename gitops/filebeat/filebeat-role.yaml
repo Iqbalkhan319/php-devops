@@ -1,17 +1,17 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: filebeat-cluster-role  # Defines the name of the ClusterRole
+  name: filebeat-cluster-role
 rules:
-- apiGroups: [""]  # Refers to the core API group (core resources without an explicit API group)
-  resources: ["pods", "pods/logs"]  # Filebeat can access pods and their logs
-  verbs: ["get", "list", "watch"]  # Permitted actions (get, list, and watch) on pods and logs
+- apiGroups: [""]
+  resources: ["pods", "pods/logs"]
+  verbs: ["get", "list", "watch"]
 
-- apiGroups: ["extensions", "apps"]  # Refers to resources in the 'extensions' and 'apps' API groups
-  resources: ["deployments", "replicasets"]  # Filebeat can access information about deployments and replicasets
-  verbs: ["get", "list", "watch"]  # Allowed actions on these resources (get, list, and watch)
+- apiGroups: ["extensions", "apps"]
+  resources: ["deployments", "replicasets"]
+  verbs: ["get", "list", "watch"]
 
-- apiGroups: [""]  # Refers to the core API group again
-  resources: ["nodes", "namespaces"]  # Filebeat can access nodes and namespaces
-  verbs: ["get", "list", "watch"]  # Allowed actions on nodes and namespaces
+- apiGroups: [""]
+  resources: ["nodes", "namespaces"]
+  verbs: ["get", "list", "watch"]
 

@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: filebeat-config  # Name of the ConfigMap
-  namespace: kube-system  # Namespace where the ConfigMap is created (typically where Filebeat runs)
+  name: filebeat-config
+  namespace: kube-system
 data:
   filebeat.yml: |-
     filebeat.inputs:  # Defines the inputs for Filebeat to collect logs
@@ -11,14 +11,14 @@ data:
         - /var/log/pods/**/*.log  # Collects logs from all pods
         - /var/log/containers/*.log  # Collects logs from containers
 
-      processors:  # Adds processors to enhance log data
-      - add_kubernetes_metadata:  # Adds Kubernetes metadata to the logs, such as pod name, namespace, etc.
-          in_cluster: true  # Indicates that Filebeat is running within a Kubernetes cluster
-          default_indexers.enabled: false  # Disables default indexers (if customized ones are used)
-          default_matchers.enabled: false  # Disables default matchers
+      processors:
+      - add_kubernetes_metadata:
+          in_cluster: true
+          default_indexers.enabled: false
+          default_matchers.enabled: false
 
-    output.elasticsearch:  # Defines the output for logs to be sent to Elasticsearch
-      hosts: ['https://192.168.44.150:9200']  # Elasticsearch endpoint (replace 'ip' with the actual IP of the Elasticsearch server)
+    output.elasticsearch:
+      hosts: ['https://192.168.44.150:9200']  # Elasticsearch endpoint
       username: "elastic"  # Username for authenticating with Elasticsearch
       password: "uaa5di1qmFCID=Bb+Fru"  # Password for authenticating with Elasticsearch (replace with actual password)
       ssl.verification_mode: "none"  # Disables SSL certificate verification
