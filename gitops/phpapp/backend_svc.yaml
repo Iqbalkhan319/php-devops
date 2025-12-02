@@ -7,7 +7,6 @@ metadata:
 spec:
   selector:
     app: backend-pod
-    appname: bhw
   ports:
     - protocol: TCP
       port: 3306
