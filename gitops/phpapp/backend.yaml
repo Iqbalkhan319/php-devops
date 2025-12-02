@@ -7,14 +7,12 @@ spec:
   selector:
     matchLabels:
       app: backend-pod
-      appname: bhw
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
         app: backend-pod
-        appname: bhw
     spec:
       containers:
       - image: mysql:8.0.31
